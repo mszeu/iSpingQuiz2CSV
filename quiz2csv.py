@@ -99,7 +99,5 @@ if zipfile.is_zipfile(args.quizfile):
         csv_file_name = args.csvfile
     extract_quiz_to_csv("document.json", csv_file_name)
     os.unlink("document.json")
-    # normalize_csv(args.csvfile)
-    # test
 else:
     print("The file " + args.quizfile + " is not a valid iSpring QUIZ file")
