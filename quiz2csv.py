@@ -78,18 +78,6 @@ def extract_quiz_to_csv(json_file, csv_file):
             writer.writerow([q['question'], q['type'], choices_str, correct_str, q['feedback']])
 
 
-def normalize_csv(csv_file):
-    # Experimental, partial implementation. To be Completed.
-    max_commas_num = 0
-    with open(csv_file, 'r', encoding='utf-8') as f:
-        for lines in f:
-            print(lines)
-            commas_in_line = lines.count(",")
-            if commas_in_line > max_commas_num:
-                max_commas_num = commas_in_line
-    print(max_commas_num)
-
-
 print("iSpring QUIZ file decoder, version " + VERSION + ", by Marco S. Zuppone - msz@msz.eu - https://msz.eu")
 print("To get more info about the usage invoke it with the -h option")
 print("This software is open source and it is under the Affero AGPL 3.0 license")
@@ -98,7 +86,7 @@ parser = argparse.ArgumentParser(
     description="Extracts from the iSpring QUIZ file the questions and saves them in a CSV file",
     epilog="For any questions, feedback, suggestions  you can contact the author at msz@msz.eu")
 parser.add_argument("quizfile", help="iSpring quiz file")
-parser.add_argument("csvfile", nargs="?",help="CSV output file", default=None)
+parser.add_argument("csvfile", nargs="?", help="CSV output file", default=None)
 args = parser.parse_args()
 if zipfile.is_zipfile(args.quizfile):
     with zipfile.ZipFile(args.quizfile, mode="r") as archive:
@@ -112,6 +100,6 @@ if zipfile.is_zipfile(args.quizfile):
     extract_quiz_to_csv("document.json", csv_file_name)
     os.unlink("document.json")
     # normalize_csv(args.csvfile)
-    #test
+    # test
 else:
     print("The file " + args.quizfile + " is not a valid iSpring QUIZ file")
