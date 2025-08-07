@@ -10,6 +10,7 @@ import csv
 import json
 import os
 import zipfile
+from pathlib import Path
 
 VERSION = "0.1.0"
 
@@ -97,13 +98,18 @@ parser = argparse.ArgumentParser(
     description="Extracts from the iSpring QUIZ file the questions and saves them in a CSV file",
     epilog="For any questions, feedback, suggestions  you can contact the author at msz@msz.eu")
 parser.add_argument("quizfile", help="iSpring quiz file")
-parser.add_argument("csvfile", help="CSV output file")
+parser.add_argument("csvfile", nargs="?",help="CSV output file", default=None)
 args = parser.parse_args()
 if zipfile.is_zipfile(args.quizfile):
     with zipfile.ZipFile(args.quizfile, mode="r") as archive:
         archive.extract("document.json")
         archive.close()
-    extract_quiz_to_csv("document.json", args.csvfile)
+    csv_file_name = ""
+    if args.csvfile is None:
+        csv_file_name = Path(args.quizfile).stem + ".csv"
+    else:
+        csv_file_name = args.csvfile
+    extract_quiz_to_csv("document.json", csv_file_name)
     os.unlink("document.json")
     # normalize_csv(args.csvfile)
 else:

@@ -1,4 +1,6 @@
 *.quiz
 *.csv
+document.json
 /.venv
 /.idea
+/win-build
