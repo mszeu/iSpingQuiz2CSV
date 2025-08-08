@@ -1,8 +1,8 @@
-# iSpingQuiz2CSV
+# iSpringQuiz2CSV
 <img src=images/supporting-member-badge.png width=100 alt="logo of Python Foundation Supporting Member">
 Extracts questions for a .QUIZ iSpring Suite file to a CSV file
  
-The script can be useful if you need to extract the content form the .QUIZ file generated using the iSpring Suite to a text file format to ease the import in another E-learning suite.
+The script can be useful if you need to extract the content from the .QUIZ file generated using the iSpring Suite to a text file format to ease the import into another E-learning suite.
 
 It requires **Python 3**. It was tested on **Python 3.12** using a basic .QUIZ file created with the iSpring Suite.
 
@@ -22,7 +22,7 @@ It requires **Python 3**. It was tested on **Python 3.12** using a basic .QUIZ f
 
 **csvfile** name of the output CSV file.
 
-If not specified the file name will be the same of the quiz file but with the **.csv** extension.
+If not specified, the file name will be the same as the quiz file but with the **.csv** extension.
  
 ## Example
 
@@ -30,7 +30,7 @@ If not specified the file name will be the same of the quiz file but with the **
 
 ## NOTES
 
-The program is experimental! Use it as your own risk.
+The program is experimental! Use it at your own risk.
 
 ## COPYRIGHT & LICENSE
   Please refer to the **LICENSE** file that is part of this project.
