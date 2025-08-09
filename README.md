@@ -14,7 +14,7 @@ It requires **Python 3**. It was tested on **Python 3.12** using a basic .QUIZ f
 
     quiz2CSV.py [-h] quizfile [csvfile]
 
-### Mandatory parameter(s)
+### Mandatory parameter
 
 **quizfile** name of the iSpring QUIZ file.
 
